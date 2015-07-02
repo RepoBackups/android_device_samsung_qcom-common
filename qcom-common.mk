@@ -19,7 +19,11 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.mdpcomp.logs=0 \
-    persist.hwc.mdpcomp.enable=true
+ifeq ($(TARGET_BOARD_PLATFORM),msm8660)
+    persist.hwc.mdpcomp.enable=false
+else
+    persist.hwc.mdpcomp.enable=false
+endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=0
